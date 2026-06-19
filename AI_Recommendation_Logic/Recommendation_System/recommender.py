@@ -66,7 +66,7 @@ def main():
     
     for rank, (_, row) in enumerate(recommendations.iterrows(), start=1):
         match_percent = round(row['similarity_score'] * 100, 2)
-        print(f"\n#{rank}  {row['job_role']}")
+        print(f"\n{rank}.  {row['job_role']}")
         print(f"    Match Score: {match_percent}%")
     
     if recommendations['similarity_score'].sum() == 0:
