@@ -228,7 +228,7 @@ st.markdown('<div class="section-label">Step 1 — Select Your Skills</div>', un
 selected_skills = st.multiselect(
     label="",
     options=all_skills,
-    placeholder="Search and select your skills (minimum 4)..."
+    placeholder="search and select your skills (minimum 3)..."
 )
 
 if selected_skills:
@@ -239,8 +239,8 @@ st.markdown('<div class="section-label">Step 2 — Discover Your Path</div>', un
 clicked = st.button("Find Your Career Match")
 
 if clicked:
-    if len(selected_skills) < 4:
-        st.warning("Please select at least 4 skills to get accurate recommendations.")
+    if len(selected_skills) < 3:
+        st.warning("Please select at least 3 skills to get accurate recommendations.")
     else:
         with st.spinner("Analyzing your profile..."):
             results = recommend(selected_skills, df, vectorizer, tfidf_matrix)
